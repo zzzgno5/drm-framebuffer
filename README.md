@@ -87,3 +87,9 @@ To compile the tool simply type "make" with a valid gcc set trough the environme
 ## Install
 
 Copy the executable drm-framebuffer to your target and execute it.
+
+## example for rk3588
+sudo apt update
+sudo apt install imagemagick
+sudo systemctl stop lightdm
+convert -resize 720x ./test.png - | convert -extent 1920x1080 -gravity Center - bgra:- | ./drm-framebuffer -d /dev/dri/card0 -c HDMI-A-1
